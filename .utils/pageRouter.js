@@ -1,21 +1,33 @@
 import { glob } from 'glob';
+import  fs from 'fs';
 
 export const pageRouter = (pluginOptions) => {
     const options = {
         ...pluginOptions,
     };
+    let _config = {};
 
     return {
         name: 'vite-plugin-page-router',
         configureServer(server) {
             server.middlewares.use('/', async (req, res, next) => {
-                if (req.url.endsWith('.html') || req.url === '/') { 
+                const assumedViewPath = `${_config.root}${options.viewFolder}${req.url}`;
+                if (fs.existsSync(assumedViewPath)) {
                     req.url = `${options.viewFolder}${req.url}`;
-                }
+
+                    // if this path exists, but does not end with `.html` we suffix the url with `index.html`
+                    // this way the /sub-route will be mapped to `/sub-route/index.html`
+                    if (!req.url.endsWith ('.html')) {
+                        req.url += '/index.html';
+                    }
+                }                
                 return next();
             })
-        }
-    }
+        },
+        async config(userConfig) {
+            _config = userConfig;
+        },
+    };
 };
 
 export const pages = (pageOptions) => {
