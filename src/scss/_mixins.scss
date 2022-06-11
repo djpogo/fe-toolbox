@@ -1,0 +1,14 @@
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+/// @see https://css-tricks.com/snippets/sass/strip-unit-function/
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+      @return $number / ($number * 0 + 1);
+    }
+    @return $number;
+}
+
+@function pxToRem($px, $basePx: 16) {
+    @return #{calc((#{strip-unit($px)} / #{strip-unit($basePx)}) * 1rem)};
+}

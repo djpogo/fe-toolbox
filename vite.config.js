@@ -9,6 +9,15 @@ export default defineConfig({
             input: pages(),
         },
     },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: [
+                    '@import "/scss/_mixins.scss";',
+                ].join(''),
+            },
+        }
+    },
     plugins: [
         pageRouter({
             viewFolder: '/views',
