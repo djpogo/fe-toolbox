@@ -12,3 +12,15 @@
 @function pxToRem($px, $basePx: 16) {
     @return #{calc((#{strip-unit($px)} / #{strip-unit($basePx)}) * 1rem)};
 }
+
+@mixin font-face($font-family, $file-name, $style: normal, $weight: 400) {
+  @font-face {
+    font-family: $font-family;
+    font-style: $style;
+    font-weight: $weight;
+    font-display: swap;
+    src:
+      local($font-family),
+      url(#{$file-name}) format("woff2");
+  }
+}

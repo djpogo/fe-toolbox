@@ -1,7 +1,13 @@
 {{#> main title="Hey this is handlebars :: Index"}}
   {{#*inline "main-block"}}
+    {{>image/image
+      avifImage="/img/dakota-roos-u7ldh_tgH3s-unsplash.avif"
+      webpImage="/img/dakota-roos-u7ldh_tgH3s-unsplash.webp"
+      jpgImage="/img/dakota-roos-u7ldh_tgH3s-unsplash.jpg"
+      fallbackImage="/img/dakota-roos-u7ldh_tgH3s-unsplash.jpg"
+      alt="Photo from Dakota Roos - scenery of a grassfield during sunset"
+    }}
     <div id="app"></div>
-    {{>button/button title="I am a handlebars components button"}}
     <script type="module" src="/main.js"></script>
   {{/inline}}
 {{/main}}

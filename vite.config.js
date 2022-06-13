@@ -9,6 +9,7 @@ export default defineConfig({
             input: pages(),
         },
     },
+    publicDir: 'public',
     css: {
         preprocessorOptions: {
             scss: {

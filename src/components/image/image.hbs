@@ -1,0 +1,16 @@
+<picture class="picture">
+    {{#if avifImage}}
+    <source type="image/avif" srcset="{{avifImage}} 1x">
+    {{/if}}
+    {{#if webpImage}}
+    <source type="image/webp" srcset="{{webpImage}} 1x">
+    {{/if}}
+    {{#if pngImage}}
+    <source type="image/png" srcset="{{pngImage}} 1x">
+    {{/if}}
+    {{#if jpgImage}}
+    <source type="image/jpg" srcset="{{jpgImage}} 1x">
+    {{/if}}
+    <img class="picture__img" src="{{fallbackImage}}" alt="{{alt}}">
+</picture>
+<script type="module" src="{{resolve-from-root 'components/image/image.js'}}"></script>
