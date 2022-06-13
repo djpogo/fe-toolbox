@@ -1,13 +1,23 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import handlebars from 'vite-plugin-handlebars';
 import { pageRouter, pages } from './.utils/pageRouter';
 
+const hash = Date.now().toString(32);
+const env = loadEnv(process.env.NODE_ENV, process.cwd());
+
 export default defineConfig({
+    base: env.VITE_BASE,
     root: 'src',
     build: {
         rollupOptions: {
             input: pages(),
+            output: {
+                entryFileNames: `${hash}/js/[name].js`,
+                chunkFileNames: `${hash}/js/[name].js`,
+                assetFileNames: `${hash}/[ext]/[name].[ext]`,
+            }
         },
+        outDir: '../dist',
     },
     publicDir: 'public',
     css: {
