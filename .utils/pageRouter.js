@@ -39,7 +39,6 @@ export const pages = (pageOptions) => {
     };
     const pages = glob.sync(`${options.root}${options.viewFolder}**/*${options.fileExtension}`);
     const returnPages = {};
-    console.log(pages);
     pages.forEach(page => {
         // check for "main" index view
         if (page === `${options.root}${options.viewFolder}index${options.fileExtension}`) {
