@@ -1,6 +1,7 @@
 import { defineConfig, loadEnv } from 'vite';
 import handlebars from 'vite-plugin-handlebars';
 import { pageRouter, pages } from './.utils/pageRouter';
+import { cleanupPath } from './.utils/cleanupPath';
 
 const hash = Date.now().toString(32);
 const env = loadEnv(process.env.NODE_ENV, process.cwd());
@@ -17,6 +18,7 @@ export default defineConfig({
                 assetFileNames: `${hash}/[ext]/[name].[ext]`,
             }
         },
+        emptyOutDir: true,
         outDir: '../dist',
     },
     publicDir: 'public',
@@ -40,5 +42,6 @@ export default defineConfig({
                 'src/components',
             ],
         }),
+        cleanupPath('views'),
     ],
 });
