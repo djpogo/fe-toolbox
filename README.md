@@ -8,6 +8,7 @@ Powered by:
 * [sass](https://sass-lang.com/) [dart-sass](https://github.com/sass/dart-sass)
 * [handlebars](https://handlebarsjs.com/) [vite-plugin-handlebars](https://github.com/alexlafroscia/vite-plugin-handlebars)
 * and of course JavaScript 🧡
+* [Demo Image](https://unsplash.com/photos/u7ldh_tgH3s) used in project from [Dakota Roos](https://unsplash.com/@dakotaroosphotography)
 
 ## quick start
 
