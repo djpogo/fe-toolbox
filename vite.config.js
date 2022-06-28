@@ -42,6 +42,10 @@ export default defineConfig({
                 'src/components',
             ],
         }),
-        cleanupPath('views'),
+        cleanupPath({
+            views: 'views',
+            hash,
+            hashFile: env.VITE_HASH_FILE,
+        }),
     ],
 });

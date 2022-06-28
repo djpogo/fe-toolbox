@@ -22,6 +22,18 @@ $ npm run build
 
 For more information about the motivation of this repository please read my [blog post](https://raoulkramer.de/vite-mpa-handlebars-sass).
 
+## production bundle
+
+Right now `npm run build` will create a `./dist` folder with all files.
+JS and CSS can be found under `./dist/[hash]/js/**` or `./dist/[hash]/css/**`. The hash is generated during the build process and stored in a `./build-hash.json` file in project root. If a framework/css needs to know this hash, this is where it can be readed:
+
+``` js
+// build-hash.json
+{"hash":"1g6lqj2mc"}
+
+```
+To change this hash to a longer or securer value adjust line 6 from [`vite.config.js`](vite.config.js#L6).
+
 ## project structure
 
 Entry point html-wise is the [`src/views/index.html`](src/views/index.html) file.
