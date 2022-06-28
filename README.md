@@ -1,6 +1,6 @@
 # (yet another) fe toolbox
 
-This repository belongs to this blog post [viet.js + mpa + handlebars + sass](https://raoulkramer.de/vite-mpa-handlebars-sass).
+This repository belongs to this blog post ~~[viet.js + mpa + handlebars + sass](https://raoulkramer.de/vite-mpa-handlebars-sass)~~ (blog post not ready yet).
 
 Powered by:
 * [vite](https://vitejs.dev/) based on vites [vanilla](https://vitejs.dev/guide/#trying-vite-online) template
