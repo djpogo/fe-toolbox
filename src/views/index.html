@@ -1,11 +1,11 @@
-{{#> main title="Hey this is handlebars :: Index"}}
+{{#> main title=title}}
   {{#*inline "main-block"}}
     {{>image/image
-      avifImage="/img/dakota-roos-u7ldh_tgH3s-unsplash.avif"
-      webpImage="/img/dakota-roos-u7ldh_tgH3s-unsplash.webp"
-      jpgImage="/img/dakota-roos-u7ldh_tgH3s-unsplash.jpg"
-      fallbackImage="/img/dakota-roos-u7ldh_tgH3s-unsplash.jpg"
-      alt="Photo from Dakota Roos - scenery of a grassfield during sunset"
+      avifImage=stage.image.avif
+      webpImage=stage.image.webp
+      jpgImage=stage.image.jpg
+      fallbackImage=stage.image.jpg
+      alt=stage.image.alt
     }}
     <div id="app"></div>
     <script type="module" src="/main.js"></script>

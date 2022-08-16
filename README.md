@@ -83,6 +83,38 @@ import './image.scss';
 
 This way, every time a handlebar component is used, it will bring its own js and css to the party and vite will take care of this.
 
+## data
+
+Take a look at **`/src/json/**`** and find three example json files.
+
+These json files have the following filename convention `<pagePath>[.<scope>].json` with the exception for `global[.<scope>].json`.
+
+Whenever your `index.html` is called, all `*.json` matching one the following rules are injected into your view:
+* `global.json`
+* `global.<scope>.json`
+* `global.<scope2>.json`
+* `index.json`
+* `index.<scope>.json`
+* `index.<scope2>.json`
+
+All data from non-scoped files are merged together (using spread object merging) and injected into your views.
+
+`scoped` data will be injected as a `scope:` property into your views.
+
+### scoped data
+
+When using the `<scope>` feature for example `index.stage.json` all data from this json will be accessible under the `stage` property:
+
+``` handlebars
+{{ stage.headline }}
+```
+
+Non-scoped data will be direct 1:1 accessible in your view: 
+``` handlebars
+{{ headline }}
+```
+
+Scoped files are loaded **after** non scoped files. If your non-scoped file has a property like your `<scope>` the scoped file will overwrite this data.
 ## static assets
 
 Files and folders within the [`src/public/**`](src/public/) folder will be copied 1:1 in the `dist` folder.

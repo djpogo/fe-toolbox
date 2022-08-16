@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from 'vite';
 import handlebars from 'vite-plugin-handlebars';
 import { pageRouter, pages } from './.utils/pageRouter';
 import { cleanupPath } from './.utils/cleanupPath';
+import { findContext } from './.utils/findContext';
 
 const hash = Date.now().toString(32);
 const env = loadEnv(process.env.NODE_ENV, process.cwd());
@@ -41,6 +42,9 @@ export default defineConfig({
                 'src/layouts',
                 'src/components',
             ],
+            context(pagePath) {
+                return findContext(pagePath);
+            },
         }),
         cleanupPath({
             views: 'views',
